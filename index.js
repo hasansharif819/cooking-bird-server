@@ -17,7 +17,9 @@ console.log(process.env.res_USER);
 
  const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 // const { default: Stripe } = require('stripe');
- const uri =`mongodb+srv://${process.env.res_USER}:${process.env.res_PASS}@cluster0.7ijeqqy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+//  const uri =`mongodb+srv://${process.env.res_USER}:${process.env.res_PASS}@cluster0.7ijeqqy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+
+const uri = `mongodb+srv://${process.env.res_USER}:${process.env.res_PASS}@cluster0.rnj2e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
  
  // Create a MongoClient with a MongoClientOptions object to set the Stable API version
  const client = new MongoClient(uri, {
@@ -33,11 +35,11 @@ console.log(process.env.res_USER);
        // Connect the client to the server	(optional starting in v4.7)
        await client.connect();
        
-       const menuCollection = client.db('resDb').collection('menu');
-       const paymentCollection = client.db('resDb').collection(' payment');
-       const userCollection = client.db('resDb').collection('users');
-       const reviewCollection = client.db('resDb').collection('review');
-       const cartCollection = client.db('resDb').collection('carts');
+       const menuCollection = client.db('cookingBird').collection('menu');
+       const paymentCollection = client.db('cookingBird').collection(' payment');
+       const userCollection = client.db('cookingBird').collection('users');
+       const reviewCollection = client.db('cookingBird').collection('review');
+       const cartCollection = client.db('cookingBird').collection('carts');
       
 
           // middleware for token verify______
