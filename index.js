@@ -92,28 +92,29 @@ const uri = `mongodb+srv://${process.env.res_USER}:${process.env.res_PASS}@clust
       })
 
       // api for update menu item(admin)
-      // app.get('/menu/:id', async(req,res)=>{
-      //   const id = req.params.id;
-      //   console.log("Idddd = ", id)
-      //   const query = {_id: new ObjectId(id)};
-      //   const result = await menuCollection.findOne(query)
-      //   console.log("result = ", result)
-      //   res.send(result);
-      // })
+      app.get('/menu/:id', async(req,res)=>{
+        const id = req.params.id;
+        // console.log("Idddd = ", id)
+        const query = {_id: new ObjectId(id)};
+        const result = await menuCollection.findOne(query)
+        // console.log("result = ", result)
+        res.send(result);
+      })
 
       // Get Single menu with id 
-      app.get('/menu/:id', async (req, res) => {
-        try {
-          const id = req.params.id;
-          const result = await menuCollection.findOne({ _id: id });
-          if (!result) {
-            return res.status(404).send({ message: "Item not found" });
-          }
-          res.send(result);
-        } catch (error) {
-          res.status(500).send({ error: "An error occurred while fetching the item" });
-        }
-      });
+      // app.get('/menu/:id', async (req, res) => {
+      //   try {
+      //     const _id = req.params.id;
+
+      //     const result = await menuCollection.findOne({ _id });
+      //     if (!result) {
+      //       return res.status(404).send({ message: "Item not found" });
+      //     }
+      //     res.send(result);
+      //   } catch (error) {
+      //     res.status(500).send({ error: "An error occurred while fetching the item" });
+      //   }
+      // });
       
       
 
